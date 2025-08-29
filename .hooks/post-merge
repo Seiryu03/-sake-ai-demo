@@ -1,0 +1,39 @@
+#!/bin/bash
+# 🔄 APrise デザイン整合性チェック（マージ後）
+
+echo "🔄 Post-merge design integrity check..."
+
+# 保護対象ファイルの存在確認
+PROTECTED_FILES=("public/index.html" "public/styles-v2.css")
+MISSING_FILES=()
+
+for file in "${PROTECTED_FILES[@]}"; do
+    if [ ! -f "$file" ]; then
+        MISSING_FILES+=("$file")
+    fi
+done
+
+if [ ${#MISSING_FILES[@]} -gt 0 ]; then
+    echo ""
+    echo "🚨 CRITICAL DESIGN FILES MISSING!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    for file in "${MISSING_FILES[@]}"; do
+        echo "❌ Missing: $file"
+    done
+    echo ""
+    echo "🔧 Please restore the 100-point design files immediately"
+    echo "💡 You may need to revert the merge or restore from backup"
+    exit 1
+fi
+
+# デザインファイルの基本構造チェック
+if ! grep -q "Enterprise AI Assistant Platform" public/index.html; then
+    echo "⚠️  Warning: Main title may have been modified"
+fi
+
+if ! grep -q "🏢 Enterprise Grid Background System" public/styles-v2.css; then
+    echo "⚠️  Warning: Premium CSS framework may have been modified"
+fi
+
+echo "✅ Design integrity check completed"
+echo "🎨 100-point design maintained"

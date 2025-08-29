@@ -1,0 +1,16 @@
+{
+  "name": "demo-sake-chatbot",
+  "version": "1.0.0",
+  "description": "APrise日本酒EC向けデモ・チャットボット - 営業用埋め込みウィジェット",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["sake", "chatbot", "demo", "widget", "japanese", "ec"],
+  "author": "APrise",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
