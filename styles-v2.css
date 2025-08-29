@@ -2201,3 +2201,33 @@ body::after {
     opacity: 1;
   }
 }
+
+/* 戻るボタン */
+.back-to-sales-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--aprise-text);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  z-index: 9999;
+  box-shadow: var(--aprise-shadow-lg);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.back-to-sales-btn:hover {
+  background: var(--aprise-white);
+  transform: translateY(-2px);
+  box-shadow: var(--aprise-shadow-xl);
+  color: var(--aprise-primary);
+}
+
+.back-to-sales-btn:active {
+  transform: translateY(0);
+}
