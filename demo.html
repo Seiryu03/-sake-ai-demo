@@ -755,9 +755,40 @@ This demo is for educational purposes - actual sales must comply with local legi
     }
 
     function submitEnterpriseRequest() {
-      // 実際の実装では API 呼び出し
-      alert('Thank you! We\'ll contact you within 24 hours to schedule your personalized enterprise demo.');
+      // フォームの値を取得
+      const email = document.querySelector('.contact-form input[type="email"]').value;
+      const company = document.querySelector('.contact-form input[type="text"]').value;
+      const useCase = document.querySelector('.contact-form textarea').value;
+      
+      // 入力チェック
+      if (!email || !company) {
+        alert('Please fill in your email and company name.');
+        return;
+      }
+      
+      // メール件名と本文を作成
+      const subject = 'Enterprise Demo Request - Sake AI Assistant';
+      const body = `Enterprise Demo Request Details:
+
+Email: ${email}
+Company: ${company}
+Use Case: ${useCase || 'Not specified'}
+
+Please contact me to schedule a personalized enterprise demo.
+
+Thank you!`;
+      
+      // mailto: でメールクライアントを開く
+      const mailtoUrl = `mailto:seiryu@aprise.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+      
+      // フォームを閉じる
       closeEnterpriseModal();
+      
+      // 確認メッセージ
+      setTimeout(() => {
+        alert('Your email client should now open with the enterprise demo request. Please send the email to complete your request.');
+      }, 500);
     }
 
     // Pulse animation keyframes
