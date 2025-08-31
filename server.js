@@ -26,16 +26,35 @@ const server = http.createServer((req, res) => {
   
   // ルーティング設定
   if (req.url === '/' || req.url === '/index.html') {
-    filePath = path.join(__dirname, 'public', 'index.html');
+    filePath = path.join(__dirname, 'public/index.html');
   } else if (req.url === '/sales' || req.url === '/sales.html') {
     filePath = path.join(__dirname, 'sales-landing.html');
   } else if (req.url.startsWith('/public/')) {
     filePath = path.join(__dirname, req.url);
   } else if (req.url.startsWith('/data/')) {
     filePath = path.join(__dirname, req.url);
+  } else if (req.url === '/styles-v2.css') {
+    filePath = path.join(__dirname, 'public/styles-v2.css');
   } else {
-    // その他のリクエストはpublicディレクトリから探す
-    filePath = path.join(__dirname, 'public', req.url);
+    // その他のリクエストは404
+    res.writeHead(404, { 'Content-Type': 'text/html' });
+    res.end(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>404 - Not Found</title>
+      </head>
+      <body>
+        <h1>404 - Page Not Found</h1>
+        <p>Available pages:</p>
+        <ul>
+          <li><a href="/">Demo Page</a></li>
+          <li><a href="/sales">Sales Landing Page</a></li>
+        </ul>
+      </body>
+      </html>
+    `);
+    return;
   }
 
   // ファイル拡張子からMIMEタイプを取得

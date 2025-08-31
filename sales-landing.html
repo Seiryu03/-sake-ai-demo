@@ -341,6 +341,248 @@
       line-height: 1.6;
     }
 
+    /* Pricing Section */
+    .pricing-section {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      position: relative;
+    }
+
+    .pricing-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(215, 43, 43, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border: 2px solid #f0f0f0;
+      border-radius: 20px;
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(215, 43, 43, 0.02), transparent);
+      transform: rotate(45deg);
+      transition: all 0.6s ease;
+      opacity: 0;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      border-color: rgba(215, 43, 43, 0.3);
+    }
+
+    .pricing-card:hover::before {
+      opacity: 1;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid #D72B2B;
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(215, 43, 43, 0.2);
+    }
+
+    .pricing-card.featured::after {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: 20px;
+      right: -35px;
+      background: #D72B2B;
+      color: white;
+      padding: 8px 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      transform: rotate(45deg);
+      box-shadow: 0 4px 8px rgba(215, 43, 43, 0.3);
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .pricing-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #000000;
+      margin-bottom: 16px;
+    }
+
+    .pricing-price {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pricing-currency {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #D72B2B;
+      margin-right: 4px;
+    }
+
+    .pricing-amount {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #000000;
+      letter-spacing: -0.02em;
+    }
+    
+    .pricing-slash {
+      font-size: 1.5rem;
+      color: #999999;
+      margin: 0 8px;
+    }
+
+    .pricing-period {
+      font-size: 1rem;
+      color: #666666;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+
+    .pricing-subtitle {
+      color: #666666;
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    .pricing-features {
+      margin: 32px 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:last-child {
+      border-bottom: none;
+    }
+
+    .feature-item:hover {
+      background: rgba(215, 43, 43, 0.02);
+      margin: 0 -16px;
+      padding-left: 16px;
+      padding-right: 16px;
+      border-radius: 8px;
+    }
+
+    .feature-item .feature-icon {
+      font-size: 1.25rem;
+      margin-right: 12px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .pricing-btn {
+      width: 100%;
+      padding: 18px 24px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .pricing-btn.btn-primary {
+      background: #000000;
+      color: #ffffff;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .pricing-btn.btn-primary:hover {
+      background: #333333;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .pricing-btn.btn-secondary {
+      background: transparent;
+      color: #D72B2B;
+      border: 2px solid #D72B2B;
+    }
+
+    .pricing-btn.btn-secondary:hover {
+      background: #D72B2B;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(215, 43, 43, 0.2);
+    }
+
+    .pricing-guarantee {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .guarantee-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: rgba(215, 43, 43, 0.05);
+      border: 1px solid rgba(215, 43, 43, 0.1);
+      border-radius: 16px;
+      padding: 24px 32px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .guarantee-icon {
+      font-size: 2rem;
+      color: #D72B2B;
+    }
+
+    .guarantee-content h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 4px;
+    }
+
+    .guarantee-content p {
+      color: #666666;
+      margin: 0;
+      line-height: 1.5;
+    }
+
     /* ROI Section */
     .roi-section {
       padding: 120px 0;
@@ -519,7 +761,6 @@
     // 言語切替関数を事前定義
     function switchToJapanese() {
       try {
-        console.log('日本語切り替え開始');
         
         // H1タイトル  
         const h1 = document.querySelector('h1');
@@ -532,15 +773,49 @@
         // セクションタイトルを更新
         const titles = document.querySelectorAll('.section-title');
         if (titles[0]) titles[0].textContent = 'APriseが選ばれる理由';
-        if (titles[1]) titles[1].textContent = '日本酒小売業者の実証済み成果';
-        if (titles[2]) titles[2].textContent = '日本酒ビジネスの変革準備はできましたか？';
+        if (titles[1]) titles[1].textContent = '価格プラン';
+        if (titles[2]) titles[2].textContent = 'AIアシスタント導入で期待できる効果';
+        if (titles[3]) titles[3].textContent = '日本酒ビジネスの変革準備はできましたか？';
+        
+        // サブタイトルを更新
+        const subtitles = document.querySelectorAll('.section-subtitle');
+        if (subtitles[0]) subtitles[0].textContent = '日本文化、醸造方法、料理ペアリングの深い知識を持つ日本酒EC専用設計';
+        if (subtitles[1]) subtitles[1].textContent = 'お客様のニーズに合わせた2つのソリューション';
+        if (subtitles[2]) subtitles[2].textContent = '日本酒の専門知識を持つAIアシスタントが、お客様の購買体験を向上させ、ビジネスの成長をサポートします。';
+        
+        // 価格プランの詳細を更新
+        const pricingSubtitles = document.querySelectorAll('.pricing-subtitle');
+        if (pricingSubtitles[0]) pricingSubtitles[0].textContent = '3営業日以内にデリバリー';
+        if (pricingSubtitles[1]) pricingSubtitles[1].textContent = 'Trial Bot + カスタマイゼーション';
+        
+        // data-ja属性を持つ全要素を一括更新
+        document.querySelectorAll('[data-ja]').forEach(element => {
+          const jaText = element.getAttribute('data-ja');
+          if (jaText) {
+            if (element.tagName === 'BUTTON' || element.tagName === 'A') {
+              element.textContent = jaText;
+            } else {
+              element.textContent = jaText;
+            }
+          }
+        });
+        
+        // チャットプレビューを日本語に更新
+        const chatMessages = document.querySelectorAll('.chat-message');
+        if (chatMessages[0]) chatMessages[0].textContent = '日本酒とお寿司に合うものはありますか？';
+        if (chatMessages[1]) chatMessages[1].textContent = 'お寿司には、8-10℃に冷やしたすっきりとした純米吟醸がおすすめです。上品で繊細な味わいが魚の旨味を引き立てます。';
+        if (chatMessages[2]) chatMessages[2].textContent = '具体的な銘柄のご提案や、お寿司の種類別のペアリング詳細をお聞かせしますか？';
+        
+        // デモタイトルも日本語に
+        const demoTitle = document.querySelector('.demo-title');
+        if (demoTitle) demoTitle.textContent = '日本酒ショップ アシスタント';
         
         // CTAボタンも更新
-        const demoBtn = document.querySelector('a[data-ja="今すぐデモを体験"]');
-        if (demoBtn) demoBtn.textContent = '今すぐデモを体験';
+        const demoBtn = document.querySelector('a[data-ja="デモを試す"]');
+        if (demoBtn) demoBtn.textContent = 'デモを試す';
         
-        const contactBtn = document.querySelector('a[data-ja="営業担当に連絡"]');
-        if (contactBtn) contactBtn.textContent = '営業担当に連絡';
+        const learnMoreBtn = document.querySelector('a[data-ja="詳細を見る"]');
+        if (learnMoreBtn) learnMoreBtn.textContent = '詳細を見る';
         
         // ボタン更新
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
@@ -550,9 +825,6 @@
         // ページタイトル
         document.title = '日本酒ECをAIで変革 | APrise';
         
-        alert('日本語に切り替えました！');
-        console.log('日本語切り替え完了');
-        
       } catch (error) {
         console.error('切り替えエラー:', error);
         alert('エラー: ' + error.message);
@@ -561,7 +833,6 @@
 
     function switchToEnglish() {
       try {
-        console.log('英語切り替え開始');
         
         // H1タイトル
         const h1 = document.querySelector('h1');
@@ -574,15 +845,51 @@
         // セクションタイトル
         const titles = document.querySelectorAll('.section-title');
         if (titles[0]) titles[0].textContent = 'Why Sake Retailers Choose APrise';
-        if (titles[1]) titles[1].textContent = 'Proven Results for Sake Retailers';
-        if (titles[2]) titles[2].textContent = 'Ready to Transform Your Sake Business?';
+        if (titles[1]) titles[1].textContent = 'Investment Plans';
+        if (titles[2]) titles[2].textContent = 'Expected Benefits with AI Assistant';
+        if (titles[3]) titles[3].textContent = 'Ready to Transform Your Sake Business?';
+        
+        // サブタイトルを英語に戻す
+        const subtitles = document.querySelectorAll('.section-subtitle');
+        if (subtitles[0]) subtitles[0].textContent = 'Purpose-built for sake e-commerce with deep knowledge of Japanese culture, brewing methods, and food pairings.';
+        if (subtitles[1]) subtitles[1].textContent = 'Two tailored solutions to fit your business needs';
+        if (subtitles[2]) subtitles[2].textContent = 'Our sake-specialized AI assistant enhances customer experience and supports your business growth through expert knowledge and personalized service.';
+        
+        // 価格プランの詳細を英語に戻す
+        const pricingSubtitles = document.querySelectorAll('.pricing-subtitle');
+        if (pricingSubtitles[0]) pricingSubtitles[0].textContent = 'Delivered within 3 business days';
+        if (pricingSubtitles[1]) pricingSubtitles[1].textContent = 'Trial Bot + Full Customization';
+        
+        // data-ja属性を持つ全要素を元の英語テキストに戻す
+        document.querySelectorAll('[data-ja]').forEach(element => {
+          // 各要素のオリジナル英語テキストを復元
+          if (element.textContent !== element.getAttribute('data-ja')) {
+            return; // 既に英語の場合はスキップ
+          }
+          
+          // 要素タイプに応じて適切な英語テキストを設定
+          const originalText = getOriginalEnglishText(element);
+          if (originalText) {
+            element.textContent = originalText;
+          }
+        });
+        
+        // チャットプレビューを英語に戻す
+        const chatMessages = document.querySelectorAll('.chat-message');
+        if (chatMessages[0]) chatMessages[0].textContent = 'What sake pairs well with sushi?';
+        if (chatMessages[1]) chatMessages[1].textContent = 'For sushi, I recommend a crisp Junmai Ginjo served chilled at 8-10°C. The clean, refined flavors complement delicate fish without overwhelming.';
+        if (chatMessages[2]) chatMessages[2].textContent = 'Would you like specific bottle recommendations or pairing details for different sushi types?';
+        
+        // デモタイトルも英語に
+        const demoTitle = document.querySelector('.demo-title');
+        if (demoTitle) demoTitle.textContent = 'Sake Shop Assistant';
         
         // CTAボタンを英語に戻す
-        const demoBtn = document.querySelector('a[data-ja="今すぐデモを体験"]');
-        if (demoBtn) demoBtn.textContent = 'Experience the Demo Now';
+        const demoBtn = document.querySelector('a[data-ja="デモを試す"]');
+        if (demoBtn) demoBtn.textContent = 'Try Live Demo';
         
-        const contactBtn = document.querySelector('a[data-ja="営業担当に連絡"]');
-        if (contactBtn) contactBtn.textContent = 'Contact Sales';
+        const learnMoreBtn = document.querySelector('a[data-ja="詳細を見る"]');
+        if (learnMoreBtn) learnMoreBtn.textContent = 'Learn More';
         
         // ボタン更新
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
@@ -592,12 +899,57 @@
         // ページタイトル
         document.title = 'Transform Your Sake E-commerce with AI | APrise';
         
-        console.log('英語切り替え完了');
-        
       } catch (error) {
         console.error('英語切り替えエラー:', error);
         alert('エラー: ' + error.message);
       }
+    }
+
+    // 英語テキスト復元用のマッピング関数
+    function getOriginalEnglishText(element) {
+      const jaText = element.getAttribute('data-ja');
+      const englishMap = {
+        '常時顧客対応': 'Always Available',
+        '多言語対応': 'Languages Supported', 
+        'コードで設置': 'Line of Code Setup',
+        '返金保証期間': 'Money-back Guarantee',
+        'デモを試す': 'Try Live Demo',
+        '詳細を見る': 'Learn More',
+        '日本酒の専門知識': 'Sake Expertise',
+        '料理ペアリングの達人': 'Food Pairing Master',
+        '提供方法の指導': 'Serving Guidance',
+        'グローバル対応': 'Global Ready',
+        'あなたのブランド': 'Your Brand',
+        'AI分析機能': 'AI-Powered Analytics',
+        '顧客インサイト': 'Customer Insights',
+        'スマート推奨': 'Smart Recommendations',
+        'Trial Bot': 'Trial Bot',
+        'Full Custom Bot': 'Full Custom Bot',
+        '一回払い': 'one-time',
+        '総額': 'total',
+        '1行のコードでインストール': 'One line of code installation',
+        '基本的な日本酒推薦機能': 'Basic sake recommendation engine',
+        '英語・日本語対応': 'English & Japanese support',
+        '料理ペアリング提案': 'Food pairing suggestions',
+        '3日間返金保証': '3-day money-back guarantee',
+        'ブランドカスタマイゼーション': 'Brand customization',
+        '会話分析レポート': 'Conversation analytics',
+        'AI駆動の顧客インサイト': 'AI-powered customer insights',
+        'パーソナライズ推奨': 'Personalized recommendations',
+        '継続的なサポート・更新': 'Ongoing support & updates',
+        'Trial Botを申し込む': 'Request Trial Bot',
+        'カスタマイズを相談': 'Discuss Customization',
+        '満足保証': 'Satisfaction Guarantee',
+        '1行': '1 Line',
+        '3日': '3 Days',
+        '実際の機能': 'What You Get',
+        '日本酒の種類、醸造方法、産地の専門知識で顧客に正確な情報を提供': 'Expert knowledge of sake types, brewing methods, and regions to provide accurate information to customers',
+        '料理との最適なペアリング提案で顧客の購買体験を向上': 'Optimal food pairing suggestions to enhance customer purchasing experience',
+        '適切な温度と提供方法の指導でお客様の日本酒体験を最大化': 'Proper temperature and serving guidance to maximize customers\' sake experience',
+        '15言語以上での対応で世界中のお客様にサービス提供': 'Service in 15+ languages for customers worldwide'
+      };
+      
+      return englishMap[jaText] || null;
     }
   </script>
 </head>
@@ -719,41 +1071,226 @@
     </div>
   </section>
 
+  <!-- Pricing Plans Section -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" data-ja="2段階料金プラン">2-Step Pricing Plan</h2>
+        <p class="section-subtitle" data-ja="まず試して、良ければ本格導入。段階的アプローチで安心スタート">Try first, then upgrade. A step-by-step approach for confidence</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Trial Bot Plan -->
+        <div class="pricing-card featured">
+          <div class="pricing-header">
+            <h3 class="pricing-title" data-ja="🎨 Step 1: Your Custom Bot">🎨 Step 1: Your Custom Bot</h3>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">599</span>
+              <span class="pricing-period" data-ja="一回払い">one-time</span>
+            </div>
+            <p class="pricing-subtitle" data-ja="📅 あなたの企業専用にカスタマイズ">📅 Customized for your business</p>
+            <div style="background: #f0f9ff; border: 1px solid #0ea5e9; border-radius: 8px; padding: 12px; margin: 12px 0; text-align: center;">
+              <p style="margin: 0; font-size: 0.9rem; color: #0369a1; font-weight: 600;" data-ja="🤖 私たちがあなた専用のボットを作成">🤖 We create your custom bot</p>
+              <p style="margin: 4px 0 0 0; font-size: 0.8rem; color: #0369a1;" data-ja="サイト情報を自動読み取り | お客様は何もする必要なし | 3日以内にメールでコード送付">Auto-read site info | You do nothing | Code sent within 3 days</p>
+            </div>
+            <div style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 8px; padding: 10px; margin: 12px 0; text-align: center;">
+              <p style="margin: 0; font-size: 0.85rem; color: #92400e; font-weight: 600;" data-ja="継続オプション：月額$200でそのまま利用可能">Continue option: $200/month to keep using</p>
+            </div>
+          </div>
+          
+          <div class="pricing-features">
+            <div class="feature-item">
+              <span class="feature-icon">🎨</span>
+              <span data-ja="あなたのブランド専用カスタマイズ">Custom branding for your business</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🤖</span>
+              <span data-ja="サイト情報を自動読み取り">Auto-read your site information</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🍶</span>
+              <span data-ja="日本酒推薦エンジン">Sake recommendation engine</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🌐</span>
+              <span data-ja="英語・日本語対応">English & Japanese support</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">⚡</span>
+              <span data-ja="1行コードで簡単導入">One line of code setup</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🛡️</span>
+              <span data-ja="3日間返金保証">3-day money-back guarantee</span>
+            </div>
+          </div>
+          
+          <button class="pricing-btn btn-primary" onclick="requestTrialBot()" data-ja="カスタムボットを申し込む">Request Your Custom Bot</button>
+        </div>
+
+        <!-- Full Custom Bot Plan -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-title" data-ja="🚀 Step 2: Advanced Customization">🚀 Step 2: Advanced Customization</h3>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">2,400</span>
+              <span class="pricing-period" data-ja="アップグレード料金">upgrade fee</span>
+            </div>
+            <p class="pricing-subtitle" data-ja="いつでもアップグレード可能">Upgrade anytime from Step 1</p>
+            <p style="font-size: 0.85rem; color: #D72B2B; margin-top: 8px; font-weight: 600;" data-ja="+ 月額$299のサブスク">+ $299/month subscription</p>
+          </div>
+          
+          <div class="pricing-features">
+            <div class="feature-item">
+              <span class="feature-icon">🎨</span>
+              <span data-ja="完全ブランドカスタマイズ">Complete brand customization</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">📊</span>
+              <span data-ja="高度な分析レポート">Advanced analytics & reports</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🔗</span>
+              <span data-ja="既存システム連携">System integrations (CRM, inventory)</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🌍</span>
+              <span data-ja="無制限言語サポート">Unlimited language support</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">📈</span>
+              <span data-ja="AI売上インサイト">AI-powered sales insights</span>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🔧</span>
+              <span data-ja="継続サポート・更新">Ongoing support & updates</span>
+            </div>
+          </div>
+          
+          <button onclick="requestCustomization()" class="pricing-btn btn-secondary" data-ja="カスタマイズを相談">Discuss Customization</button>
+        </div>
+      </div>
+
+      <div class="pricing-guarantee">
+        <div class="guarantee-content">
+          <span class="guarantee-icon">🛡️</span>
+          <div>
+            <h4 data-ja="満足保証">Satisfaction Guarantee</h4>
+            <p data-ja="Trial Bot設置後、3営業日以内にご満足いただけない場合は全額返金いたします">If you're not satisfied with your Trial Bot within 3 business days of installation, we'll provide a full refund</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps Section -->
+  <section class="next-steps-section" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 80px 0;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h2 class="section-title" data-ja="Step 1の後はどうなる？">What happens after Step 1?</h2>
+        <p class="section-subtitle" data-ja="あなたのカスタムボットを受け取った後、2つの選択肢があります">After receiving your custom bot, you have two options</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center; max-width: 1000px; margin: 0 auto;">
+        <!-- Option 1: Continue -->
+        <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); border: 2px solid #fbbf24;">
+          <div style="text-align: center;">
+            <div style="background: #fef3c7; border-radius: 50%; width: 80px; height: 80px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">💛</div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin-bottom: 16px;" data-ja="オプション1：そのまま継続">Option 1: Keep Using</h3>
+            <div style="background: #fbbf24; color: white; font-size: 1.8rem; font-weight: 700; padding: 16px; border-radius: 12px; margin-bottom: 16px;">
+              <span data-ja="月額 $200">$200/month</span>
+            </div>
+            <ul style="text-align: left; list-style: none; padding: 0; margin: 0; color: #4b5563;">
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: #10b981; margin-right: 8px;">✅</span><span data-ja="現在のボットをそのまま利用">Continue with current bot</span></li>
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: #10b981; margin-right: 8px;">✅</span><span data-ja="基本的な更新・サポート">Basic updates & support</span></li>
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: #10b981; margin-right: 8px;">✅</span><span data-ja="いつでもキャンセル可能">Cancel anytime</span></li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Arrow -->
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; color: #6b7280;" data-ja="または">OR</div>
+          <div style="border-left: 2px dashed #d1d5db; height: 40px; margin: 16px auto;"></div>
+        </div>
+        
+        <!-- Option 2: Upgrade -->
+        <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); border: 2px solid #3b82f6;">
+          <div style="text-align: center;">
+            <div style="background: #dbeafe; border-radius: 50%; width: 80px; height: 80px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">🚀</div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin-bottom: 16px;" data-ja="オプション2：アップグレード">Option 2: Upgrade</h3>
+            <div style="background: #3b82f6; color: white; font-size: 1.2rem; font-weight: 700; padding: 12px; border-radius: 12px; margin-bottom: 8px;">
+              <span data-ja="$2,400 初期費用">$2,400 setup</span>
+            </div>
+            <div style="background: #1e40af; color: white; font-size: 1.2rem; font-weight: 700; padding: 12px; border-radius: 12px; margin-bottom: 16px;">
+              <span data-ja="+ $299/月">+ $299/month</span>
+            </div>
+            <ul style="text-align: left; list-style: none; padding: 0; margin: 0; color: #4b5563;">
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: #10b981; margin-right: 8px;">✅</span><span data-ja="完全ブランドカスタマイズ">Full brand customization</span></li>
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: #10b981; margin-right: 8px;">✅</span><span data-ja="AI会話分析">AI conversation analytics</span></li>
+              <li style="margin-bottom: 12px; display: flex; align-items: center;"><span style="color: #10b981; margin-right: 8px;">✅</span><span data-ja="システム連携">System integrations</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 50px; padding: 30px; background: white; border-radius: 16px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);">
+        <h4 style="font-size: 1.3rem; font-weight: 600; color: #1f2937; margin-bottom: 16px;" data-ja="🎯 どちらを選んでも大丈夫">🎯 Either option works great</h4>
+        <p style="color: #6b7280; margin: 0;" data-ja="まずはStep 1で試していただき、その後でどちらが良いかお選びください。いつでも変更可能です。">Start with Step 1 to try it out, then decide which option works best for you. You can change anytime.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ROI Section -->
   <section class="roi-section">
     <div class="container">
       <div class="roi-content">
         <div>
-          <h2 class="section-title" data-ja="日本酒販売事業者の実証済み成果">Proven Results for Sake Retailers</h2>
-          <p class="section-subtitle" data-ja="私たちのAIアシスタントは質問に答えるだけでなく、日本酒の品質・伝統・最高の味わい方を顧客に教えることで売上を促進します。">Our AI assistant doesn't just answer questions—it drives sales by educating customers about sake quality, heritage, and perfect moments to enjoy each bottle.</p>
+          <h2 class="section-title" data-ja="AIアシスタント導入で期待できる効果">Expected Benefits with AI Assistant</h2>
+          <p class="section-subtitle" data-ja="日本酒の専門知識を持つAIアシスタントが、お客様の購買体験を向上させ、ビジネスの成長をサポートします。">Our sake-specialized AI assistant enhances customer experience and supports your business growth through expert knowledge and personalized service.</p>
           
           <div class="roi-metrics">
             <div class="metric-card">
-              <div class="metric-value">40%</div>
-              <div class="metric-label" data-ja="売上向上">Increase in Sales</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value">65%</div>
-              <div class="metric-label" data-ja="エンゲージメント向上">Higher Engagement</div>
-            </div>
-            <div class="metric-card">
               <div class="metric-value">24/7</div>
-              <div class="metric-label" data-ja="顧客サポート">Customer Support</div>
+              <div class="metric-label" data-ja="常時顧客対応">Always Available</div>
             </div>
             <div class="metric-card">
-              <div class="metric-value">3min</div>
-              <div class="metric-label" data-ja="セットアップ時間">Setup Time</div>
+              <div class="metric-value">15+</div>
+              <div class="metric-label" data-ja="多言語対応">Languages Supported</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value" data-ja="1行">1 Line</div>
+              <div class="metric-label" data-ja="コードで設置">Line of Code Setup</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value" data-ja="3日">3 Days</div>
+              <div class="metric-label" data-ja="返金保証期間">Money-back Guarantee</div>
             </div>
           </div>
         </div>
 
-        <div>
-          <blockquote style="font-size: 1.25rem; font-style: italic; color: #444; line-height: 1.6; border-left: 4px solid #D72B2B; padding-left: 24px; margin: 0;" data-ja="「AIアシスタントのおかげで、お客様が純米酒と吟醸酒の違いを理解できるようになりました。わずか2ヶ月で高級酒の売上が40%も向上しました。」">
-            "The AI assistant helped our customers understand the difference between junmai and ginjo sake. Our premium bottle sales increased by 40% in just 2 months."
-          </blockquote>
-          <p style="margin-top: 20px; color: #666; font-weight: 500;" data-ja="— 田中様、プレミアム・サケ・ダイレクト">
-            — Tanaka-san, Premium Sake Direct
-          </p>
+        <div style="background: #f8fafc; border-radius: 16px; padding: 32px;">
+          <h3 style="font-size: 1.5rem; font-weight: 600; color: #000; margin-bottom: 24px;" data-ja="実際の機能">What You Get</h3>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+              <span style="font-size: 1.25rem; margin-right: 12px;">🍶</span>
+              <span data-ja="日本酒の種類、醸造方法、産地の専門知識で顧客に正確な情報を提供">Expert knowledge of sake types, brewing methods, and regions to provide accurate information to customers</span>
+            </li>
+            <li style="display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+              <span style="font-size: 1.25rem; margin-right: 12px;">🍽️</span>
+              <span data-ja="料理との最適なペアリング提案で顧客の購買体験を向上">Optimal food pairing suggestions to enhance customer purchasing experience</span>
+            </li>
+            <li style="display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #e0e0e0;">
+              <span style="font-size: 1.25rem; margin-right: 12px;">🌡️</span>
+              <span data-ja="適切な温度と提供方法の指導でお客様の日本酒体験を最大化">Proper temperature and serving guidance to maximize customers' sake experience</span>
+            </li>
+            <li style="display: flex; align-items: center; padding: 12px 0;">
+              <span style="font-size: 1.25rem; margin-right: 12px;">🌐</span>
+              <span data-ja="15言語以上での対応で世界中のお客様にサービス提供">Service in 15+ languages for customers worldwide</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -765,21 +1302,75 @@
       <h2 data-ja="日本酒ビジネスの変革をお始めになりませんか？">Ready to Transform Your Sake Business?</h2>
       <p data-ja="すでにAIを活用して顧客教育、売上向上、顧客関係強化を実現している世界の日本酒販売事業者に仲間入りしませんか。">Join leading sake retailers worldwide who are already using AI to educate customers, increase sales, and build stronger relationships.</p>
       <a href="/" class="btn btn-primary" data-ja="今すぐデモを体験">Experience the Demo Now</a>
-      <a href="mailto:seiryu@aprise.co.uk?subject=Sake%20AI%20Assistant%20-%20Sales%20Inquiry&body=Hello%2C%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20AI%20assistant%20for%20sake%20e-commerce.%0A%0ACompany%3A%20%0AWebsite%3A%20%0AMonthly%20sake%20sales%20volume%3A%20%0A%0APlease%20contact%20me%20to%20discuss%20implementation.%0A%0AThank%20you!" class="btn btn-secondary" data-ja="営業担当に連絡" style="margin-left: 20px;">Contact Sales</a>
     </div>
   </section>
 
   <script>
-    // 初期化処理のみ（関数は<head>で定義済み）
+    // 初期化処理 - 常に英語でスタート
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM読み込み完了 - 日本語ボタンテスト');
-      
-      // localStorage から言語設定を読み込み
-      const savedLang = localStorage.getItem('salesPageLang');
-      if (savedLang === 'ja') {
-        switchToJapanese();
-      }
+      // 常に英語ボタンをアクティブ状態にする
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      const enBtn = document.getElementById('lang-en');
+      if (enBtn) enBtn.classList.add('active');
     });
+
+    // Trial Bot申込み機能
+    function requestTrialBot() {
+      const subject = "Trial Bot Request - Sake E-commerce AI Assistant";
+      const body = `Hello APrise Team,
+
+I'm interested in requesting the Trial Bot for my sake e-commerce business.
+
+Company Details:
+Company Name: [Your Company Name]
+Website: [Your Website URL]
+Current Platform: [Shopify/WooCommerce/Custom/Other]
+Monthly Sake Sales Volume: [Approximate number of bottles/month]
+Target Markets: [UK/Japan/US/EU/Other]
+
+Installation Preference:
+□ I need help with the one-line code installation
+□ I can handle the technical setup myself
+□ I would like a demo call first
+
+Please contact me to proceed with the 3-business-day delivery.
+
+Best regards,
+[Your Name]
+[Your Email]
+[Your Phone Number]`;
+
+      const mailtoUrl = `mailto:seiryu@aprise.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+    }
+
+    // カスタマイズ相談機能
+    function requestCustomization() {
+      const subject = "Enterprise Demo Request - AI Chatbot for Sake E-commerce";
+      const body = `Hello APrise Team,
+
+I'm interested in scheduling an enterprise demo of your AI chatbot solution for sake e-commerce.
+
+Company Details:
+Company Name: [Your Company Name]
+Website: [Your Website URL]
+Current Platform: [Shopify/WooCommerce/Custom/Other]
+Monthly Sake Sales Volume: [Approximate number of bottles/month]
+Target Markets: [UK/Japan/US/EU/Other]
+
+Specific Requirements:
+[Please describe your specific needs or use case]
+
+Preferred Demo Time:
+[Your preferred time slots]
+
+Thank you for considering APrise for your sake e-commerce needs. I look forward to hearing from you.
+
+Best regards`;
+
+      const mailtoUrl = `mailto:seiryu@aprise.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoUrl;
+    }
   </script>
 </body>
 </html>

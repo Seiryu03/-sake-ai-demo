@@ -5,8 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>APrise - Enterprise AI Assistant Platform</title>
   <link rel="stylesheet" href="styles-v2.css">
+  
+  <style>
+    /* Back to Sales Button */
+    .back-to-sales-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(215, 43, 43, 0.2);
+      border-radius: 12px;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #333;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .back-to-sales-btn:hover {
+      background: rgba(215, 43, 43, 0.95);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(215, 43, 43, 0.3);
+      border-color: #D72B2B;
+    }
+    
+    .back-to-sales-btn:active {
+      transform: translateY(0);
+    }
+    
+    .back-arrow {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-to-sales-btn:hover .back-arrow {
+      transform: translateX(-2px);
+    }
+    
+    @media (max-width: 768px) {
+      .back-to-sales-btn {
+        top: 15px;
+        left: 15px;
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Back to Sales Button -->
+  <a href="/sales" class="back-to-sales-btn">
+    <span class="back-arrow">←</span>
+    <span>Back to Sales</span>
+  </a>
+
   <!-- 🏢 Enterprise Grid Background System -->
   <div class="particle-system">
     <div class="particle"></div>
@@ -752,8 +813,9 @@ This demo is for educational purposes - actual sales must comply with local legi
     }
 
     function submitEnterpriseRequest() {
-      // 実際の実装では API 呼び出し
-      alert('Thank you! We\'ll contact you within 24 hours to schedule your personalized enterprise demo.');
+      // Enterprise Demo Request メールを開く
+      const mailtoLink = "mailto:seiryu@aprise.co.uk?subject=Enterprise%20Demo%20Request%20-%20AI%20Chatbot%20for%20Sake%20E-commerce&body=Hello%20APrise%20Team%2C%0A%0AI'm%20interested%20in%20scheduling%20an%20enterprise%20demo%20of%20your%20AI%20chatbot%20solution%20for%20sake%20e-commerce.%0A%0ACompany%20Details%3A%0ACompany%20Name%3A%20%5BYour%20Company%20Name%5D%0AWebsite%3A%20%5BYour%20Website%20URL%5D%0ACurrent%20Platform%3A%20%5BShopify%2FWooCommerce%2FCustom%2FOther%5D%0AMonthly%20Sake%20Sales%20Volume%3A%20%5BApproximate%20number%20of%20bottles%2Fmonth%5D%0ATarget%20Markets%3A%20%5BUK%2FJapan%2FUS%2FEU%2FOther%5D%0A%0ASpecific%20Requirements%3A%0A%5BPlease%20describe%20your%20specific%20needs%20or%20use%20case%5D%0A%0APreferred%20Demo%20Time%3A%0A%5BYour%20preferred%20time%20slots%5D%0A%0AThank%20you%20for%20considering%20APrise%20for%20your%20sake%20e-commerce%20needs.%20I%20look%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards";
+      window.location.href = mailtoLink;
       closeEnterpriseModal();
     }
 
