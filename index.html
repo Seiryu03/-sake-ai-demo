@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APrise - Enterprise AI Assistant Platform</title>
+  <link rel="stylesheet" href="./public/styles-v2.css">
+</head>
+<body>
+  <!-- 🏢 Enterprise Grid Background System -->
+  <div class="particle-system">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Enterprise Landing Page -->
+  <div class="hero-container">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <div class="hero-card">
+        <div class="brand-section">
+          <div class="brand-logo">
+            <span class="logo-text">APrise</span>
+            <div class="logo-underline"></div>
+          </div>
+          <h2 class="brand-subtitle">Fully Customizable AI Assistant Platform</h2>
+        </div>
+        <div class="hero-description">
+          <p class="description-text">
+            Experience our enterprise-grade AI assistant platform that adapts to your business needs.<br>
+            <strong>Your Brand. Your Colors. Your Voice.</strong> Deploy in minutes, customize in seconds.
+          </p>
+        </div>
+
+        <div class="customization-showcase">
+          <h3 class="showcase-title">Complete Customization Control</h3>
+          <div class="customization-grid">
+            <div class="customization-item">
+              <div class="custom-icon">🎨</div>
+              <h4 class="custom-title">Brand Integration</h4>
+              <p class="custom-description">Match your exact brand colors, fonts, and visual identity</p>
+            </div>
+            <div class="customization-item">
+              <div class="custom-icon">💬</div>
+              <h4 class="custom-title">Conversation Flow</h4>
+              <p class="custom-description">Define responses, tone, and conversation patterns</p>
+            </div>
+            <div class="customization-item">
+              <div class="custom-icon">🔧</div>
+              <h4 class="custom-title">API Integration</h4>
+              <p class="custom-description">Connect to your existing systems and databases</p>
+            </div>
+            <div class="customization-item">
+              <div class="custom-icon">📊</div>
+              <h4 class="custom-title">Analytics & Insights</h4>
+              <p class="custom-description">Track performance and user interactions</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-section">
+          <h3 class="demo-title">See It in Action</h3>
+          <p class="demo-description">
+            This sake e-commerce demo showcases just one of countless possibilities.<br>
+            Click the chat button below to experience the platform in action.
+          </p>
+          <div class="demo-cta">
+            <button class="cta-button primary" onclick="openChatDemo()">Try Demo Assistant</button>
+            <button class="cta-button secondary" onclick="showEnterpriseDemo()">Request Enterprise Demo</button>
+          </div>
+        </div>
+
+        <div class="enterprise-footer">
+          <p class="enterprise-notice">
+            Enterprise-grade security • White-label ready • 99.9% uptime SLA
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- チャットボット本体 -->
+  <div class="aprise-chat-widget">
+    <!-- 吹き出しボタン -->
+    <button class="aprise-chat-button" id="chatButton" aria-label="Open chat">
+      <svg viewBox="0 0 24 24">
+        <path d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z"/>
+      </svg>
+    </button>
+
+    <!-- チャットパネル -->
+    <div class="aprise-chat-panel" id="chatPanel">
+      <!-- ヘッダー -->
+      <div class="aprise-chat-header">
+        <div>
+          <div class="aprise-chat-title">APrise Demo</div>
+          <div class="aprise-demo-badge">Demo</div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <button class="aprise-language-toggle" id="languageToggle">English / 日本語</button>
+          <button class="aprise-close-button" id="closeButton" aria-label="Close chat">
+            <svg viewBox="0 0 24 24">
+              <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- デモ注意書き -->
+      <div class="aprise-demo-notice" id="demoNotice">
+        This is a demo. Product availability, prices, and shipping terms may differ from the live site.
+      </div>
+
+      <!-- メッセージエリア -->
+      <div class="aprise-messages" id="messages">
+        <!-- 初期メッセージはJavaScriptで挿入 -->
+      </div>
+
+      <!-- クイック質問ボタンエリア -->
+      <div class="aprise-quick-questions" id="quickQuestions">
+        <div class="quick-questions-title" id="quickQuestionsTitle">Quick questions</div>
+        <div class="quick-questions-buttons" id="quickQuestionsButtons">
+          <!-- JavaScriptで動的に生成 -->
+        </div>
+      </div>
+
+      <!-- 入力エリア -->
+      <div class="aprise-input-area">
+        <textarea class="aprise-input" id="messageInput" placeholder="Ask about sake styles, flavors, and food pairings..." rows="1"></textarea>
+        <button class="aprise-send-button" id="sendButton" aria-label="メッセージを送信">
+          <svg viewBox="0 0 24 24">
+            <path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ウェルカムトースト -->
+    <div class="aprise-welcome-toast" id="welcomeToast">
+      Thanks for checking out this demo. Click the bottom-right chat bubble to open the assistant.
+    </div>
+  </div>
+
+  <!-- Enterprise Demo Modal -->
+  <div id="enterpriseModal" class="enterprise-modal">
+    <div class="enterprise-modal-content">
+      <div class="enterprise-modal-header">
+        <h2>Request Enterprise Demo</h2>
+        <button class="enterprise-modal-close" onclick="closeEnterpriseModal()">&times;</button>
+      </div>
+      <div class="enterprise-modal-body">
+        <p>Get a personalized demo showing how our AI assistant platform can be customized for your specific industry and use case.</p>
+        
+        <div class="enterprise-features">
+          <div class="feature-item">
+            <div class="feature-icon">🎨</div>
+            <div>
+              <h4>Complete Branding</h4>
+              <p>Match your exact colors, fonts, and visual identity</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔧</div>
+            <div>
+              <h4>Custom Integration</h4>
+              <p>Connect to your CRM, databases, and existing systems</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <div>
+              <h4>Advanced Analytics</h4>
+              <p>Detailed insights, conversation tracking, and ROI metrics</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛡️</div>
+            <div>
+              <h4>Enterprise Security</h4>
+              <p>SOC 2 compliance, data encryption, and privacy controls</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-cta">
+          <button class="cta-button primary" onclick="submitEnterpriseRequest()">Schedule Demo</button>
+          <button class="cta-button secondary" onclick="closeEnterpriseModal()">Maybe Later</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // チャットボット機能の実装
+    class APriseChatBot {
+      constructor() {
+        this.currentLanguage = 'en';
+        this.sakeData = null;
+        this.isOpen = false;
+        this.isTyping = false;
+        
+        this.initElements();
+        this.loadData();
+        this.bindEvents();
+        this.showWelcomeToast();
+        this.addWelcomeMessage();
+        this.setupQuickQuestions();
+      }
+
+      initElements() {
+        this.chatButton = document.getElementById('chatButton');
+        this.chatPanel = document.getElementById('chatPanel');
+        this.closeButton = document.getElementById('closeButton');
+        this.languageToggle = document.getElementById('languageToggle');
+        this.demoNotice = document.getElementById('demoNotice');
+        this.messages = document.getElementById('messages');
+        this.messageInput = document.getElementById('messageInput');
+        this.sendButton = document.getElementById('sendButton');
+        this.welcomeToast = document.getElementById('welcomeToast');
+        this.quickQuestions = document.getElementById('quickQuestions');
+        this.quickQuestionsTitle = document.getElementById('quickQuestionsTitle');
+        this.quickQuestionsButtons = document.getElementById('quickQuestionsButtons');
+      }
+
+      async loadData() {
+        try {
+          const response = await fetch('./data/sake_demo.json');
+          this.sakeData = await response.json();
+        } catch (error) {
+          console.error('データの読み込みに失敗:', error);
+        }
+      }
+
+      bindEvents() {
+        this.chatButton.addEventListener('click', () => this.toggleChat());
+        this.closeButton.addEventListener('click', () => this.closeChat());
+        this.languageToggle.addEventListener('click', () => this.toggleLanguage());
+        this.sendButton.addEventListener('click', () => this.sendMessage());
+        
+        this.messageInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            this.sendMessage();
+          }
+        });
+
+        // 入力エリアの自動調整
+        this.messageInput.addEventListener('input', () => {
+          this.messageInput.style.height = 'auto';
+          this.messageInput.style.height = Math.min(this.messageInput.scrollHeight, 100) + 'px';
+        });
+      }
+
+      showWelcomeToast() {
+        setTimeout(() => {
+          this.welcomeToast.classList.add('hide');
+          setTimeout(() => {
+            this.welcomeToast.style.display = 'none';
+          }, 500);
+        }, 3000);
+      }
+
+      toggleChat() {
+        if (this.isOpen) {
+          this.closeChat();
+        } else {
+          this.openChat();
+        }
+      }
+
+      openChat() {
+        this.chatPanel.classList.add('open');
+        this.isOpen = true;
+        this.messageInput.focus();
+        console.log('Chat opened');
+      }
+
+      closeChat() {
+        this.chatPanel.classList.remove('open');
+        this.isOpen = false;
+        console.log('Chat closed');
+      }
+
+      toggleLanguage() {
+        this.currentLanguage = this.currentLanguage === 'ja' ? 'en' : 'ja';
+        this.updateLanguage();
+        console.log('Language switched to:', this.currentLanguage);
+      }
+
+      updateLanguage() {
+        if (!this.sakeData) return;
+
+        const messages = this.sakeData.messages;
+        const isJapanese = this.currentLanguage === 'ja';
+
+        // UI要素の更新
+        this.demoNotice.textContent = isJapanese ? 
+          messages.demo_notice.ja : messages.demo_notice.en;
+        
+        this.messageInput.placeholder = isJapanese ? 
+          '日本酒について質問してください...' : 'Ask about sake styles, flavors, and food pairings...';
+
+        // 言語トグルボタンのテキストを更新
+        this.languageToggle.textContent = isJapanese ? 'English' : '日本語';
+
+        // クイック質問の言語を更新
+        this.updateQuickQuestionsLanguage();
+
+        // ウェルカムメッセージを更新
+        this.updateWelcomeMessage();
+      }
+
+      setupQuickQuestions() {
+        if (!this.sakeData || !this.sakeData.quickQuestions) {
+          setTimeout(() => this.setupQuickQuestions(), 100);
+          return;
+        }
+
+        this.renderQuickQuestions();
+      }
+
+      renderQuickQuestions() {
+        const isJapanese = this.currentLanguage === 'ja';
+        const messages = this.sakeData.messages;
+        
+        // タイトル更新
+        this.quickQuestionsTitle.textContent = isJapanese ? 
+          messages.quickQuestionsTitle.ja : messages.quickQuestionsTitle.en;
+
+        // ボタン生成
+        this.quickQuestionsButtons.innerHTML = '';
+        
+        this.sakeData.quickQuestions.forEach((question, index) => {
+          const button = document.createElement('button');
+          button.className = 'quick-question-button';
+          button.innerHTML = `
+            <span class="icon">${question.icon}</span>
+            ${isJapanese ? question.textJa : question.textEn}
+          `;
+          
+          button.addEventListener('click', () => {
+            const fullQuestion = isJapanese ? question.fullQuestionJa : question.fullQuestionEn;
+            this.sendQuickQuestion(fullQuestion);
+          });
+
+          this.quickQuestionsButtons.appendChild(button);
+        });
+      }
+
+      updateQuickQuestionsLanguage() {
+        if (!this.sakeData) return;
+        this.renderQuickQuestions();
+      }
+
+      sendQuickQuestion(question) {
+        // 質問を入力欄に設定して送信
+        this.messageInput.value = question;
+        this.sendMessage();
+      }
+
+      addWelcomeMessage() {
+        if (!this.sakeData) {
+          setTimeout(() => this.addWelcomeMessage(), 100);
+          return;
+        }
+        
+        const welcomeText = this.currentLanguage === 'ja' ? 
+          this.sakeData.messages.welcome.ja : this.sakeData.messages.welcome.en;
+        
+        this.addMessage(welcomeText, 'assistant', true);
+      }
+
+      updateWelcomeMessage() {
+        if (!this.sakeData) return;
+        
+        const firstMessage = this.messages.querySelector('.aprise-message.assistant');
+        if (firstMessage) {
+          const welcomeText = this.currentLanguage === 'ja' ? 
+            this.sakeData.messages.welcome.ja : this.sakeData.messages.welcome.en;
+          
+          firstMessage.querySelector('.aprise-message-content').textContent = welcomeText;
+        }
+      }
+
+      async sendMessage() {
+        const text = this.messageInput.value.trim();
+        if (!text || this.isTyping) return;
+
+        this.addMessage(text, 'user');
+        this.messageInput.value = '';
+        this.messageInput.style.height = 'auto';
+        
+        this.showTyping();
+        
+        // 応答を生成（リアリスティックな遅延）
+        const delay = 800 + Math.random() * 700;
+        setTimeout(async () => {
+          const response = await this.generateResponse(text);
+          this.hideTyping();
+          this.addMessageWithTypeEffect(response, 'assistant');
+        }, delay);
+      }
+
+      // タイピングエフェクト付きメッセージ追加
+      addMessageWithTypeEffect(text, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `aprise-message ${sender}`;
+        
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('ja-JP', { 
+          hour: '2-digit', 
+          minute: '2-digit' 
+        });
+
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'aprise-message-content';
+        
+        const timeDiv = document.createElement('div');
+        timeDiv.className = 'aprise-message-time';
+        timeDiv.textContent = timeString;
+        timeDiv.style.opacity = '0';
+        
+        messageDiv.appendChild(contentDiv);
+        messageDiv.appendChild(timeDiv);
+        this.messages.appendChild(messageDiv);
+
+        // タイピングエフェクト
+        let index = 0;
+        const words = text.split(' ');
+        const typeInterval = setInterval(() => {
+          if (index < words.length) {
+            const word = words[index];
+            const formattedWord = word.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            contentDiv.innerHTML += (index > 0 ? ' ' : '') + formattedWord;
+            index++;
+            this.scrollToBottom();
+          } else {
+            clearInterval(typeInterval);
+            timeDiv.style.opacity = '1';
+            timeDiv.style.transition = 'opacity 0.3s ease';
+          }
+        }, 30);
+      }
+
+      addMessage(text, sender, isWelcome = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `aprise-message ${sender}`;
+        
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('ja-JP', { 
+          hour: '2-digit', 
+          minute: '2-digit' 
+        });
+
+        // Markdownの簡易処理（太字対応）
+        const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+        messageDiv.innerHTML = `
+          <div class="aprise-message-content">${formattedText}</div>
+          <div class="aprise-message-time">${timeString}</div>
+        `;
+
+        this.messages.appendChild(messageDiv);
+        
+        // スムーズなスクロールアニメーション
+        requestAnimationFrame(() => {
+          this.scrollToBottom();
+        });
+      }
+
+      showTyping() {
+        this.isTyping = true;
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'aprise-typing';
+        typingDiv.id = 'typing-indicator';
+        typingDiv.innerHTML = `
+          <div class="aprise-typing-dots">
+            <div class="aprise-typing-dot"></div>
+            <div class="aprise-typing-dot"></div>
+            <div class="aprise-typing-dot"></div>
+          </div>
+        `;
+        this.messages.appendChild(typingDiv);
+        this.scrollToBottom();
+      }
+
+      hideTyping() {
+        this.isTyping = false;
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+          typingIndicator.remove();
+        }
+      }
+
+      scrollToBottom() {
+        this.messages.scrollTo({
+          top: this.messages.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+
+      async generateResponse(userMessage) {
+        if (!this.sakeData) {
+          return this.currentLanguage === 'ja' ? 
+            'データを読み込み中です。しばらくお待ちください。' :
+            'Loading data, please wait...';
+        }
+
+        const message = userMessage.toLowerCase();
+        const isJapanese = this.currentLanguage === 'ja';
+
+        // FAQ検索
+        const faq = this.sakeData.faqs.find(item => {
+          const question = isJapanese ? item.question : item.questionEn;
+          return this.fuzzyMatch(message, question.toLowerCase());
+        });
+
+        if (faq) {
+          return isJapanese ? faq.answer : faq.answerEn;
+        }
+
+        // 日本酒の種類に関する質問
+        if (message.includes('junmai') || message.includes('純米') || 
+            message.includes('ginjo') || message.includes('吟醸') ||
+            message.includes('daiginjo') || message.includes('大吟醸')) {
+          return this.explainSakeTypes();
+        }
+
+        // 料理ペアリング
+        if (message.includes('food') || message.includes('pairing') || 
+            message.includes('料理') || message.includes('相性') ||
+            message.includes('sushi') || message.includes('寿司')) {
+          return this.suggestFoodPairing(message);
+        }
+
+        // 味わいに関する質問
+        if (message.includes('taste') || message.includes('flavor') || 
+            message.includes('味') || message.includes('sweet') || 
+            message.includes('dry') || message.includes('甘') || message.includes('辛')) {
+          return this.describeTaste(message);
+        }
+
+        // 温度に関する質問
+        if (message.includes('temperature') || message.includes('cold') || 
+            message.includes('warm') || message.includes('hot') ||
+            message.includes('温度') || message.includes('冷') || message.includes('燗')) {
+          return this.temperatureGuidance();
+        }
+
+        // デフォルト応答
+        return isJapanese ? 
+          'それは興味深い質問ですね。日本酒の種類、味わい、料理との相性、最適な飲み方など、どの分野について詳しく知りたいでしょうか？' :
+          'That\'s an interesting question! I can help with sake types, flavors, food pairings, and serving suggestions. What specific aspect would you like to explore?';
+      }
+
+      fuzzyMatch(input, target) {
+        const words = input.split(' ');
+        return words.some(word => 
+          target.includes(word) || 
+          word.length > 3 && target.includes(word.substring(0, word.length - 1))
+        );
+      }
+
+      explainSakeTypes() {
+        const isJapanese = this.currentLanguage === 'ja';
+        
+        if (isJapanese) {
+          return `日本酒の主な種類をご説明します：
+
+**純米酒**: 米、米麹、水のみで造られる。米本来の旨味が特徴的です。
+
+**吟醸酒**: 精米歩合60%以下、低温発酵で造られる。フルーティーで華やかな香りが特徴です。
+
+**大吟醸酒**: 精米歩合50%以下で、より丁寧に造られる。上品で繊細な味わいです。
+
+どの種類について詳しく知りたいですか？`;
+        } else {
+          return `Here are the main types of sake:
+
+**Junmai**: Made only with rice, koji, and water. Features rich, full-bodied rice flavors.
+
+**Ginjo**: Rice polished to 60% or less, fermented at low temperatures. Known for fruity and floral aromas.
+
+**Daiginjo**: Rice polished to 50% or less, the most refined type. Elegant and delicate flavor profile.
+
+Which type would you like to learn more about?`;
+        }
+      }
+
+      suggestFoodPairing(message) {
+        const isJapanese = this.currentLanguage === 'ja';
+        
+        if (message.includes('sushi') || message.includes('寿司')) {
+          return isJapanese ?
+            '寿司には**吟醸酒**がおすすめです。華やかな香りが魚の旨味を引き立て、酸味が脂を洗い流します。**冷酒**（8-10℃）で楽しむと最高です。' :
+            '**Ginjo sake** pairs beautifully with sushi. Its floral aroma complements the fish while acidity cleanses the palate. Serve **chilled** (8-10°C) for best results.';
+        }
+        
+        return isJapanese ?
+          '料理に合わせて日本酒をお選びします：\n\n**刺身・寿司**: 吟醸酒（冷酒）\n**天ぷら・揚げ物**: 純米酒（常温）\n**焼き魚・焼き鳥**: 純米酒（ぬる燗）\n**チーズ**: 古酒（常温）\n\nどの料理との組み合わせが気になりますか？' :
+          'Here are my food pairing suggestions:\n\n**Sashimi/Sushi**: Ginjo (chilled)\n**Tempura/Fried foods**: Junmai (room temp)\n**Grilled fish/Yakitori**: Junmai (warm)\n**Cheese**: Aged sake (room temp)\n\nWhich pairing interests you most?';
+      }
+
+      describeTaste(message) {
+        const isJapanese = this.currentLanguage === 'ja';
+        
+        return isJapanese ?
+          '日本酒の味わいは**甘口**から**辛口**まで様々です：\n\n**甘口**: フルーティーで飲みやすい。初心者の方におすすめ。\n**中口**: バランスが良く、料理に合わせやすい。\n**辛口**: キレがよく、すっきりした後味。\n\n**アルコール度数**: 通常15-16%\n**日本酒度**: +5以上が辛口、-5以下が甘口の目安です。\n\nお好みの味わいはありますか？' :
+          'Sake flavors range from **sweet** to **dry**:\n\n**Sweet (Amakuchi)**: Fruity and approachable, great for beginners.\n**Medium (Nakakuchi)**: Well-balanced, food-friendly.\n**Dry (Karakuchi)**: Clean finish, crisp taste.\n\n**ABV**: Usually 15-16%\n**Sake Meter Value**: +5+ indicates dry, -5 or below indicates sweet.\n\nWhat flavor profile do you prefer?';
+      }
+
+      temperatureGuidance() {
+        const isJapanese = this.currentLanguage === 'ja';
+        
+        return isJapanese ?
+          '日本酒は温度で味わいが変わります：\n\n**冷酒（5-10℃)**: フレッシュで軽やか。吟醸酒におすすめ。\n**常温（20℃前後)**: 本来の味わいを楽しめます。\n**ぬる燗（40℃前後)**: まろやかで飲みやすい。純米酒と相性抜群。\n**熱燗（50℃前後)**: 香りが立ち、体も温まります。\n\n季節や料理に合わせて温度を変えると、さらに楽しめますよ！' :
+          'Temperature transforms sake\'s character:\n\n**Chilled (5-10°C)**: Fresh and light, perfect for ginjo styles.\n**Room temperature (20°C)**: Experience the sake\'s true character.\n**Lukewarm (40°C)**: Smooth and mellow, great with junmai.\n**Hot (50°C)**: Aromatic and warming, perfect for winter.\n\nExperimenting with temperature based on season and food makes sake even more enjoyable!';
+      }
+    }
+
+    // グローバル関数
+    function openChatDemo() {
+      const chatBot = window.chatBot || new APriseChatBot();
+      chatBot.openChat();
+    }
+
+    function showEnterpriseDemo() {
+      document.getElementById('enterpriseModal').style.display = 'block';
+    }
+
+    function closeEnterpriseModal() {
+      document.getElementById('enterpriseModal').style.display = 'none';
+    }
+
+    function submitEnterpriseRequest() {
+      const subject = "Enterprise Demo Request - AI Chatbot Platform";
+      const body = `Hello APrise Team,
+
+I'm interested in learning more about your AI chatbot platform for enterprise use.
+
+Please contact me to schedule a demo at your earliest convenience.
+
+Best regards`;
+      
+      const mailtoLink = `mailto:seiryu@aprise.co.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+      closeEnterpriseModal();
+    }
+
+    // チャットボット初期化
+    window.addEventListener('DOMContentLoaded', () => {
+      window.chatBot = new APriseChatBot();
+    });
+  </script>
+</body>
+</html>
